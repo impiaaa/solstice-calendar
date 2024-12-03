@@ -2,6 +2,7 @@
 flask = "*"
 icalendar = "*"
 skyfield = "*"
+gunicorn = "*"
 
 [dev-packages]
 black = "*"
