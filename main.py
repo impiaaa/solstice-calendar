@@ -29,7 +29,7 @@ def uid(today=None, host_name=None, unique=None):
         return vText(f"{today}-{unique}@{host_name}")
 
 
-@app.route("/")
+@app.route("/solstice")
 def build_cal():
     today = ts.now()
     t, y = almanac.find_discrete(today - year, today + year, almanac.seasons(eph))
@@ -62,3 +62,7 @@ def build_cal():
     resp.headers["Content-Disposition"] = f'inline; filename="{calname}.ics"'
     resp.headers["Content-Type"] = "text/calendar; charset=utf-8"
     return resp
+
+@app.route("/")
+def build_default():
+    return f'<html><body>Available calendars: <a href="/solstice">{calname}</a></body></html>'
