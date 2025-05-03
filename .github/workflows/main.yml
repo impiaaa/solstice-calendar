@@ -11,11 +11,14 @@ jobs:
       id-token: 'write'
 
     steps:
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
-        workload_identity_provider: 'projects/308965809546/locations/global/workloadIdentityPools/github/providers/my-repo'
-        service_account: 'solstice-calendar-458717@appspot.gserviceaccount.com'
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4'
 
-    - id: 'deploy'
-      uses: 'google-github-actions/deploy-appengine@v2'
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: 'projects/308965809546/locations/global/workloadIdentityPools/github/providers/my-repo'
+          service_account: 'solstice-calendar-458717@appspot.gserviceaccount.com'
+  
+      - id: 'deploy'
+        uses: 'google-github-actions/deploy-appengine@v2'
