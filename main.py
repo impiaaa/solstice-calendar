@@ -9,7 +9,7 @@ import skyfield.api
 import socket
 
 calname = "Solstices & Equinoxes"
-eph = skyfield.api.load("de421.bsp")
+eph = skyfield.api.load_file("de421.bsp")
 ts = skyfield.api.load.timescale()
 year = osculating_elements_of((eph["earth"] - eph["sun"]).at(ts.now())).period_in_days
 
