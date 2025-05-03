@@ -19,7 +19,7 @@ jobs:
         with:
           project_id: 'solstice-calendar-458717'
           workload_identity_provider: 'projects/308965809546/locations/global/workloadIdentityPools/github/providers/my-repo'
-          service_account: 'solstice-calendar-458717@appspot.gserviceaccount.com'
+          service_account: 'github-actions@solstice-calendar-458717.iam.gserviceaccount.com'
   
       - id: 'deploy'
         uses: 'google-github-actions/deploy-appengine@v2'
